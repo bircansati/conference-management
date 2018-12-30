@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block body %}
+    <div class="container-fluid ">
+        <div class="container border rounded bg-light">
+            <h1>{{ conf.conference_acronym }} : {{ conf.conference_name }}<br></h1>
+            <h6>{{ conf.conference_start }}<br></h6>
+            <h6>{{ conf.conference_end }}<br></h6>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3 border rounded bg-light">
+                    <p>Conference Website</p>
+                </div>
+                <div class="col-md-9 border rounded bg-light">
+                    <p>{{ conf.conference_webpage }}</p>
+                </div>
+            </div>
+
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3 border rounded bg-light">
+                    <p>Conference Research Area</p>
+                </div>
+                <div class="col-md-9 border rounded bg-light">
+                    <p>{{ conf.conference_research_area }}</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3 border rounded bg-light">
+                    <p>Research Area İnfo</p>
+                </div>
+                <div class="col-md-9 border rounded bg-light">
+                    <p>{{ conf.conference_area_notes }}</p>
+                </div>
+            </div>
+
+        </div>
+        <div class="container">
+            <div class="row" style="margin-top=50px">
+                <div class="col-12 bg-light border rounded justify-content-center " align="center"
+                     style="height: 50px;madgin-top: 60px">
+                    <h3> Conference Other İnfo</h3>
+                </div>
+            </div>
+            <div class="row rounded border">
+                <div class="col-md-12">
+                    <div class="p">
+                        {{ conf.conference_other_info }}
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        {% csrf_token %}
+    </div>
+
+
+{% endblock %}

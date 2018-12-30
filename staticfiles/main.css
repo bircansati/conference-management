@@ -1,0 +1,23 @@
+body{
+    padding-top:100px;
+    font-size: medium;
+}
+@media screen and (min-width:768px)
+{
+    .baslik2{
+        display: none;
+
+    }
+}
+@media screen and (max-width:768px) {
+
+    .baslik {
+        display: none;
+    }
+}
+.logo_alignment {
+    display: block;
+    margin: 19px auto;
+    padding-left: 10pt;
+    height: 70px;
+}

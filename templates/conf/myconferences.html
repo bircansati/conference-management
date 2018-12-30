@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% block body %}
+
+
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="row">
+                <div class="col-12">
+                    <div class="h3">{{ request.user.get_full_name }}, Welcome to EasyChair!</div>
+                    <div class="p">Your recent EasyChair conferences are shown in below.</div>
+                </div>
+            </div>
+
+            <div class="row" style="padding-top: 50px">
+                {% for conf in confs %}
+
+                    <div class="col-md-4 col-sm-6 ">
+
+
+                        <div class="h3"><a class="text-muted" href="{% url 'detail' id=conf.id %}">{{ conf.conference_acronym }}</a></div>
+                        <div class="h6"> {{ conf.conference_name }}</div>
+                        <div class="p">{{ conf.conference_start }}</div>
+                        <div class="p">{{ conf.conference_end }}</div>
+{#                        <div class="p"><a href="{% url 'detail' id=conf.id %}" class="btn btn-primary"#}
+{#                                          role="button">İncele</a>#}
+{#                        </div>#}
+
+                        <br>
+
+                    </div>
+                {% endfor %}
+            </div>
+
+
+        </div>
+
+
+    </div>
+
+{% endblock %}

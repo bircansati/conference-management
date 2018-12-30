@@ -1,0 +1,111 @@
+{% extends 'base.html' %}
+{% block body %}
+    <div class="row" style="padding-bottom: 50px">
+        <div class="col-md-2 bg"></div>
+        <div class="col-md-2 col-12 col-sm-6">
+            <div class="container border rounded bg-light " align="center" style="width: 70%">
+                <a>Since</a><br>
+                <a>2017</a><br>
+                <a>in market</a>
+            </div>
+        </div>
+        <div class="col-md-2 col-12 col-sm-6">
+            <div class="container border rounded bg-light " align="center" style="width: 70%">
+                <td class="quarter W"><span class="ad_font0"> </span><br><span
+                        class="ad_font1">{{ usercount }}</span><br><span class="ad_font0">users</span></td>
+            </div>
+        </div>
+        <div class="col-md-2  col-12 col-sm-6">
+            <div class="container border rounded bg-light" align="center" style="width: 70%">
+                <td class="quarter W"><span class="ad_font0"> </span><br><span class="ad_font1">{{ confcount }}</span><br><span
+                        class="ad_font0">conferences served</span></td>
+            </div>
+        </div>
+        <div class="col-md-2 col-12 col-sm-6 ">
+            <div class="container border rounded bg-light" align="center" style="width: 90%">
+                <td class="quarter R"><span class="ad_font0 fW">Web traffic</span><br><span
+                        class="ad_font1 fW">12M+</span><br><span class="ad_font0 fW">page accesses per month</span></td>
+            </div>
+        </div>
+        <div class="col-md-2"></div>
+    </div>
+    <div class="row">
+        <div class="col-md-9">
+
+            <div class="row " style="padding-top: 50px">
+                <div class="col-md-12 ">
+                    <div class="container-fluid border rounded">
+                        <div class="row justify-content-center">
+                            <div class="h1"> Some of our Conferences</div>
+                        </div>
+                        <div class="row">
+
+                            {% for conf in confs %}
+
+                                <div class="col-md-4 col-sm-6 " align="center">
+
+
+                                    <div class="h3" ><a class="text-muted " href="{% url 'detail' id=conf.id %}">{{ conf.conference_acronym }}</a></div>
+                                    <div class="h6"> {{ conf.conference_name }}</div>
+                                    <div class="p">{{ conf.conference_start }}</div>
+                                    <div class="p">{{ conf.conference_end }}</div>
+                                    <div class="p"></div>
+{#                                    <div class="p"><a href="{% url 'detail' id=conf.id %}" class="btn btn-dark"#}
+{#                                                      role="button">İncele</a>#}
+{#                                    </div>#}
+
+                                    <br>
+                                </div>
+
+                            {% endfor %}
+                        </div>
+                    </div>
+                    <div class="row" style="padding-top: 50px">
+                        <div class="col-md-2">
+
+                        </div>
+                        <div class="col-md-4 " style="padding-right: 10px">
+                            <div class="container border rounded bg-light">
+                                <td class="half Y" colspan="2"><h1>Services</h1>
+                                    <ul>
+                                        <li class="conference distant1"><a class="text-muted" href="conferences.cgi">Conference
+                                            management</a>
+                                        </li>
+                                        <li class="smart distant1"><a class="text-muted" href="smart_program.cgi">Smart program</a></li>
+                                        <li class="publishing distant1"><a class="text-muted" href="/publications/">Publishing</a></li>
+                                        <li class="cfp distant1"><a class="text-muted" href="{% url 'smartcfp' %}">Smart CFP</a></li>
+                                    </ul>
+                                </td>
+                            </div>
+                        </div>
+                        <div class="col md-4 " style="padding-left: 10px">
+                            <div class="container border rounded bg-light" style="height: 170px;">
+                                <td colspan="2" class="half G"><h1>How to</h1>
+                                    <ul>
+                                        <li class="newaccaunt distant2" class="text-muted"><a class="text-muted"
+                                                href="/help/article.cgi?art=account_creation">Create an account</a></li>
+                                        <li class="apply distant2"><a class="text-muted" href="conference.cgi">Create a conference</a></li>
+                                        <li class="yourvolume distant2"><a class="text-muted" href="/publications/for_editors">Publish your
+                                            volume</a></li>
+                                    </ul>
+                                </td>
+                            </div>
+
+                        </div>
+                        <div class="col-md-2">
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <a class="twitter-timeline" data-height="1000"
+               href="https://twitter.com/Conference_News?ref_src=twsrc%5Etfw">Tweets by Conference_News</a>
+            <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+        </div>
+
+
+    </div>
+{% endblock %}

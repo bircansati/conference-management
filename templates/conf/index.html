@@ -1,0 +1,71 @@
+{% extends 'base.html' %}
+{% block body %}
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-6" align="center"><input class="form-control" type="search" placeholder="Search"></div>
+
+        </div>
+        <br>
+        <br>
+
+        <div class="row  justify-content-center">
+
+            <div class="col-12">
+
+                <div class="row hidden-md-down baslik">
+                    <div class="col-2 x" align="center"><a>Acronym</a></div>
+                    <div class="col-3 x" align="center"><a>Name</a>
+                    </div>
+                    <div class="col-1 x" align="center"><a>Location</a></div>
+                    <div class="col-2 x" align="center"><a>Start Date</a></div>
+                    <div class="col-2 x" align="center"><a>End Date</a></div>
+                    <div class="col-2  x" align="center"><a>Topics</a>
+                    </div>
+                </div>
+                <hr>
+            </div>
+
+        </div>
+
+        <div class="row justify-content-center">
+            {% for conf in confs %}
+                <div class="col-12">
+
+                    <div class="row">
+
+                        <div class="col-md-3">
+                            <a class="baslik2">Acronym</a>
+                            <a class="baslik2">:</a>
+                            <a href="{% url 'detail' id=conf.id %}">{{ conf.conference_acronym }}</a>
+                        </div>
+                        <div class="col-md-2">
+                            <a class="baslik2">Name</a>
+                            <a class="baslik2">:</a>
+                            <a>{{ conf.conference_name }}</a></div>
+                        <div class="col-md-1">
+                            <a class="baslik2">Location</a>
+                            <a class="baslik2">:</a>
+                            <a>{{ conf.conference_city }}</a>
+                        </div>
+                        <div class="col-md-2">
+                            <a class="baslik2">Start Date</a>
+                            <a class="baslik2">:</a>
+                            <a>{{ conf.conference_start }}</a>
+                        </div>
+                        <div class="col-md-2">
+                            <a class="baslik2">End Date</a>
+                            <a class="baslik2">:</a><a>{{ conf.conference_end }}</a>
+                        </div>
+
+                        <div class="col-md-2">
+                            <a class="baslik2">Topics</a>
+                            <a class="baslik2">:</a>
+                            <a>{{ conf.conference_research_area }}</a>
+                        </div>
+                    </div>
+                    <hr>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

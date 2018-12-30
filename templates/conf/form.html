@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block body %}
+    <div class="container">
+        <div class="summary">
+            <div class="h1">EasyChair Installation Request</div>
+            <p>If you would like to install EasyChair for an event, such as a
+                conference, please fill out the following form and press the 'Request'
+                button. If you provide sufficiently many details and we find no problem
+                with your request, it will normally be granted within a few hours. If
+                there is any problem, we will contact you by email but this may delay
+                handling your request considerably. To ensure that your request is
+                granted without a delay <b>please read carefully the information accompanying the form.</b></p>
+            <p>In the form below mandatory fields are marked by (*). The explanation of
+                some fields follows. Please fill out your conference information (name,
+                acronym, and city) using English or any other language with the Latin
+                alphabet, even if your conference uses Chinese, Russian, Arabic etc. as
+                the main language.</p>
+            <p>If you are an <b>author</b> wanting to submit a paper to a conference
+                hosted by EasyChair, then this page is not for you. You should find the
+                submission page for that conference instead.</p></div>
+        <div class="container bg-light ">
+
+
+            {% csrf_token %}
+
+            {% crispy form %}
+
+
+        </div>
+    </div>
+{% endblock %}
+
+

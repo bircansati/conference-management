@@ -1,0 +1,40 @@
+{% load static %}
+
+<nav class="navbar fixed-top navbar-expand-lg navbar-light  bg-light" style="">
+    <a href="{% url 'home' %}"><img class="navbar-brand logo_alignment" href="{% url 'home' %}"
+                                    src="{% static 'logoEC.png' %}" style="height: 70px"></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'smartcfp' %}">Smart CFP</a>
+            </li>
+            {% if user.is_authenticated %}
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'myconferences' %}">My Conferences</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'create' %}">Add Conference</a>
+                </li>
+            {% endif %}
+        </ul>
+        {% if user.is_authenticated %}
+            <span class="navbar-text">{{ request.user.get_full_name }}</span>
+            &nbsp;
+            <span class="navbar-text">/</span>
+            &nbsp;
+            <a class="navbar-text" href="{% url 'logout' %}">Logout</a>
+        {% else %}
+            <a class="navbar-text" href="{% url 'login' %}">Login</a>
+            &nbsp;
+            <span class="navbar-text">/</span>
+            &nbsp;
+            <a class="navbar-text" href="{% url 'register' %}">Register</a>
+
+        {% endif %}
+    </div>
+    </div>
+</nav>
